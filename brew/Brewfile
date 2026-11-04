@@ -1,0 +1,50 @@
+# Install everything:  brew bundle   (HOMEBREW_BUNDLE_FILE points here)
+# Find drift:          brew bundle cleanup     (dry run; add --force to uninstall)
+
+# Shell & terminal
+brew "fish"
+brew "starship"
+cask "ghostty"
+
+# VCS
+brew "jj"
+brew "jjui"
+brew "git-delta"
+brew "gh"
+
+# Modern CLI replacements (Rust)
+brew "eza"        # ls
+brew "fd"         # find
+brew "ripgrep"    # grep        (rg)
+brew "bat"        # cat
+brew "zoxide"     # cd          (z)
+brew "dust"       # du
+brew "procs"      # ps
+brew "sd"         # sed
+brew "bottom"     # top/htop    (btm)
+brew "tealdeer"   # tldr/man
+brew "xh"         # curl/httpie
+brew "choose-rust" # cut/awk
+brew "hyperfine"  # time
+brew "tokei"      # cloc
+brew "atuin"      # shell history (ctrl-r)
+brew "yazi"       # file manager
+
+# Dev tooling
+brew "mise"
+brew "usage"
+brew "ruby"
+brew "openssl@3"
+brew "podman"
+brew "xcodegen"
+brew "xcodes"
+brew "htop"
+brew "md5sha1sum"
+
+# Apps
+cask "zed"
+cask "claude"
+cask "firefox@developer-edition"
+cask "jetbrains-toolbox"
+cask "ollama-app"
+cask "rectangle"

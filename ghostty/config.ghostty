@@ -1,0 +1,13 @@
+# ~/.config/ghostty/config.ghostty  (symlinked from ~/dotfiles/ghostty)
+# Full reference: `ghostty +show-config --default --docs`
+
+# Start fish directly, independent of the login shell
+command = /opt/homebrew/bin/fish
+shell-integration = fish
+
+theme = Catppuccin Mocha
+font-size = 14
+window-padding-x = 8
+window-padding-y = 6
+macos-option-as-alt = left
+copy-on-select = clipboard

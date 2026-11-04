@@ -1,0 +1,44 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "Nico8954"
+email = "312534376+Nico8954@users.noreply.github.com"
+
+# Commit signing with the SSH key. Only the *public* key lives here; the private
+# key stays in ~/.ssh (never committed) and is served by the ssh-agent/keychain.
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEFs8dkndscAONFlPJ1Qt1+EbNj9gT+GpOIF4JRMd7MZ"
+
+[signing.backends.ssh]
+allowed-signers = "~/.config/git/allowed_signers"
+
+[ui]
+default-command = "log"
+# Emit git-style diffs so delta can render them. Delta's look is configured
+# in the [delta] section of ~/.config/git/config (shared with git).
+diff-formatter = ":git"
+
+# Only route diff-producing commands through delta; `jj log`, `jj status`
+# etc. keep the default `less -FRX` pager.
+[[--scope]]
+--when.commands = ["diff", "show", "interdiff", "evolog"]
+[--scope.ui]
+pager = "delta"
+
+[revsets]
+log = 'ancestors(reachable(mine() | @, mutable()), 2) | trunk() | @'
+bookmark-advance-to = '@-'
+
+[revset-aliases]
+'immutable_heads()' = 'builtin_immutable_heads() | (trunk().. & ~mine())'
+
+[aliases]
+nt = ["new", "trunk()"]
+tug = ["bookmark", "advance"]
+sync = ["util", "exec", "--", "sh", "-c", """
+jj git fetch "$@" && jj rebase -o 'trunk()' -s 'roots(trunk()..mutable()) & children(::trunk())'
+""", ""]
+# Side-by-side view on demand: `jj sd`, `jj sd -r @-`
+sd = ["util", "exec", "--", "sh", "-c", "jj diff --color=always \"$@\" | delta --side-by-side", ""]

@@ -1,0 +1,26 @@
+# Linked to ~/.config/git/config. Git reads this *in addition to* ~/.gitconfig
+# (which is managed by IT/SYS and wins on conflicts), so keep personal git
+# settings here.
+
+[core]
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[merge]
+	conflictStyle = zdiff3
+
+[diff]
+	colorMoved = default
+
+# Delta settings — used by both git and jj.
+[delta]
+	features = catppuccin-mocha
+	navigate = true          # n / N jump between files
+	line-numbers = true
+	hyperlinks = true        # clickable file paths in Ghostty
+
+[include]
+	path = ~/.config/git/catppuccin.gitconfig
+	path = ~/.config/git/config.local

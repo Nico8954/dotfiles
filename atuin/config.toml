@@ -1,0 +1,5 @@
+# ~/.config/atuin/config.toml  (symlinked from ~/dotfiles/atuin)
+# Full reference: https://docs.atuin.sh/configuration/config/
+
+[theme]
+name = "catppuccin-mocha-blue"

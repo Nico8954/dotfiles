@@ -1,0 +1,6 @@
+# machine-local / secret files never get committed
+*.local
+*.local.*
+local.fish
+fish/fish_variables
+.DS_Store

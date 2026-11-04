@@ -1,0 +1,13 @@
+# ~/.zshrc  (symlinked from ~/dotfiles/zsh)
+# zsh is still the login shell (no admin rights to chsh), so hand real
+# interactive terminals straight to fish, before doing any work.
+# Skipped for `zsh -c` (tools/IDEs/Claude Code), non-tty, inside fish
+# (IN_FISH is exported by fish), or with NO_FISH=1.
+if [[ -o interactive && -z $ZSH_EXECUTION_STRING && -t 1 && -z $IN_FISH$NO_FISH && -x /opt/homebrew/bin/fish ]]; then
+  [[ -o login ]] && exec /opt/homebrew/bin/fish --login || exec /opt/homebrew/bin/fish
+fi
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications --no-quarantine"
+export PATH="$HOME/.local/bin:/opt/homebrew/opt/ruby/bin:/opt/homebrew/opt/openssl/bin:$PATH"
+command -v mise >/dev/null && eval "$(mise activate zsh)"

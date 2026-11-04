@@ -1,0 +1,11 @@
+# ~/.ssh/config  (symlinked from ~/dotfiles/ssh)
+# No secrets here, only public settings. Private keys stay in ~/.ssh
+# and never enter the repo. Host-specific/work entries go in
+# ~/.ssh/config.local (gitignored).
+
+Include ~/.ssh/config.local
+
+Host *
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/id_ed25519

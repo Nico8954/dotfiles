@@ -19,7 +19,8 @@
 	features = catppuccin-mocha
 	navigate = true          # n / N jump between files
 	line-numbers = true
-	hyperlinks = true        # clickable file paths in Ghostty
+	hyperlinks = true        # clickable file paths in Ghostty (cmd-click)
+	hyperlinks-file-link-format = "zed://file{path}:{line}"  # open in Zed at the line
 
 [include]
 	path = ~/.config/git/catppuccin.gitconfig

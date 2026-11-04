@@ -43,6 +43,7 @@ link git/catppuccin.gitconfig "$HOME/.config/git/catppuccin.gitconfig"
 link ghostty/config.ghostty "$HOME/.config/ghostty/config.ghostty"
 
 link starship/starship.toml "$HOME/.config/starship.toml"
+link starship/jj.toml       "$HOME/.config/starship-jj.toml"
 link bat/config            "$HOME/.config/bat/config"
 link eza/theme.yml         "$HOME/.config/eza/theme.yml"
 link yazi/theme.toml       "$HOME/.config/yazi/theme.toml"
